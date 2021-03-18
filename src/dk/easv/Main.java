@@ -15,14 +15,14 @@ public class Main {
 
         // Invokes the divisor counter
         ExecutorService es = Executors.newFixedThreadPool(1);
-        DivisorCouter task1 = new DivisorCouter(1, 100000);
+        DivisorCounter task1 = new DivisorCounter(1, 100000);
         es.invokeAll(Arrays.asList(task1));
 
         // Fetches the end time of the method.
         Instant end = Instant.now();
 
         // Find the highest result
-        Result result = DivisorCouter.getBestResult();
+        Result result = DivisorCounter.getBestResult();
         System.out.println(result.getNumber() + " maxResult " + result.getDivisorCounter() + " divisors!");
         System.out.println("Duration: " + Duration.between(start, end).toMillis() + " ms");
         es.shutdown();
