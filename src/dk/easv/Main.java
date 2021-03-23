@@ -15,8 +15,9 @@ public class Main {
 
         // Invokes the divisor counter
         ExecutorService es = Executors.newFixedThreadPool(1);
-        DivisorCounter task1 = new DivisorCounter(1, 100000);
-        es.invokeAll(Arrays.asList(task1));
+        DivisorCounter task = new DivisorCounter(1, 100000);
+        System.out.println("Looking for the best result...");
+        es.invokeAll(Arrays.asList(task));
 
         // Fetches the end time of the method.
         Instant end = Instant.now();
