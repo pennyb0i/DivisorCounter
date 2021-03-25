@@ -9,11 +9,13 @@ public class DivisorCounter implements Runnable, Callable<Result> {
     private final static Vector<Result> results = new Vector<>();
     private final int minimum;
     private final int maximum;
+    private final int step;
 
-    public DivisorCounter(int minimum, int maximum)
+    public DivisorCounter(int minimum, int maximum,int step)
     {
         this.minimum = minimum;
         this.maximum = maximum;
+        this.step = step;
     }
 
     @Override
@@ -34,7 +36,7 @@ public class DivisorCounter implements Runnable, Callable<Result> {
     @Override
     public Result call() {
         Result result = new Result(0, 0);
-        for(int i = minimum; i <= maximum; i++) {
+        for(int i = minimum; i <= maximum; i+=step) {
             int counter = 0;
             for(int j = 1; j<=i; j++) {
                 if(i % j == 0) {
